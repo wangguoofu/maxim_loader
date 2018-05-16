@@ -1,23 +1,23 @@
 {
     "logs": [
         {
-            "outputFile": "/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/src/main/res/values/strings.xml",
+                    "source": "/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "4,3,5,7,6",
                         "startColumns": "4,4,4,4,4",
-                        "startOffsets": "113,56,165,279,218",
-                        "endColumns": "51,56,52,64,60",
-                        "endOffsets": "160,108,213,339,274"
+                        "startOffsets": "107,56,157,271,210",
+                        "endColumns": "49,50,52,64,60",
+                        "endOffsets": "152,102,205,331,266"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,107,164,217,282",
-                        "endColumns": "51,56,52,64,60",
-                        "endOffsets": "102,159,212,277,338"
+                        "startOffsets": "55,105,156,209,274",
+                        "endColumns": "49,50,52,64,60",
+                        "endOffsets": "100,151,204,269,330"
                     }
                 }
             ]

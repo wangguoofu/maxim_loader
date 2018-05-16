@@ -1,1 +1,1 @@
-com.hoho.android.usbserial
+com.wizarpos.android.usbserial

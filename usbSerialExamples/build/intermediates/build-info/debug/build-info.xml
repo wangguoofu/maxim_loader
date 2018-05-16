@@ -6,8 +6,8 @@
     density="mdpi"
     format="10"
     plugin-version="3.1.2"
-    timestamp="1526378643381"
-    token="1168795059035419481"
+    timestamp="1526380768940"
+    token="6726651104943614931"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
@@ -18,81 +18,81 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="27" />
+        duration="40" />
     <task
         name="verifier"
         duration="4" />
 
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_3.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
-        location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/instant-run-apk/debug/usbSerialExamples-debug.apk"
+        location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/instant-run-apk/debug/usbSerialExamples-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1526378643381"
+        timestamp="1526380768940"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="/mnt/wizarpos/main/reference/usb-serial-for-android/usbSerialExamples/build/intermediates/instant-run-apk/debug/usbSerialExamples-debug.apk"
+            location="/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/instant-run-apk/debug/usbSerialExamples-debug.apk"
             type="SPLIT_MAIN" />
     </build>
 

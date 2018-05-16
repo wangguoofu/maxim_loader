@@ -1,4 +1,4 @@
-com.hoho.android.usbserial.examples
+com.wizarpos.android.usbserial.maxim
 int drawable ic_launcher 0x7f010000
 int id checkBoxDTR 0x7f020000
 int id checkBoxRTS 0x7f020001

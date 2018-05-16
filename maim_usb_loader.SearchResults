@@ -1,0 +1,58 @@
+---- hoho Matches (57 in 25 files) ----
+AndroidManifest.xml (usbserialforandroid\build\intermediates\manifests\aapt\debug):    package="com.hoho.android.usbserial"
+AndroidManifest.xml (usbserialforandroid\build\intermediates\manifests\full\debug):    package="com.hoho.android.usbserial"
+AndroidManifest.xml (usbserialforandroid\src\main):      package="com.hoho.android.usbserial"
+BuildConfig.java (usbserialforandroid\build\generated\source\buildconfig\debug\com\hoho\android\usbserial):package com.hoho.android.usbserial;
+BuildConfig.java (usbserialforandroid\build\generated\source\buildconfig\debug\com\hoho\android\usbserial):  public static final String APPLICATION_ID = "com.hoho.android.usbserial";
+BuildInfo.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial):package com.hoho.android.usbserial;
+CdcAcmSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+CdcAcmSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+CdcAcmSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+Ch34xSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+CHANGELOG.txt:  * Library version is available in `com.hoho.android.usbserial.BuildInfo`.
+CommonUsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+CommonUsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+CommonUsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+Cp21xxSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+Cp21xxSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples): * Copyright 2013 mike wakerly <opensource@hoho.com>
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.driver.UsbSerialDriver;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.driver.UsbSerialPort;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.driver.UsbSerialProber;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.util.HexDump;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples): * @author mike wakerly (opensource@hoho.com)
+FtdiSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+FtdiSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+FtdiSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):import com.hoho.android.usbserial.util.HexDump;
+FtdiSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+HexDump.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\util):package com.hoho.android.usbserial.util;
+Package-aware-r.txt (usbserialforandroid\build\intermediates\res\symbol-table-with-package\debug):com.hoho.android.usbserial
+ProbeTable.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+ProbeTable.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+ProbeTable.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+ProlificSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+R.java (usbserialexamples\build\generated\source\r\debug\com\hoho\android\usbserial):package com.hoho.android.usbserial;
+R.java (usbserialforandroid\build\generated\source\r\debug\com\hoho\android\usbserial):package com.hoho.android.usbserial;
+SerialConsoleActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples): * Copyright 2013 mike wakerly <opensource@hoho.com>
+SerialConsoleActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.driver.UsbSerialPort;
+SerialConsoleActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.util.HexDump;
+SerialConsoleActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples):import com.hoho.android.usbserial.util.SerialInputOutputManager;
+SerialConsoleActivity.java (usbserialexamples\src\main\java\src\com\hoho\android\usbserial\examples): * @author mike wakerly (opensource@hoho.com)
+SerialInputOutputManager.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\util): * Copyright 2013 mike wakerly <opensource@hoho.com>
+SerialInputOutputManager.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\util):package com.hoho.android.usbserial.util;
+SerialInputOutputManager.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\util):import com.hoho.android.usbserial.driver.UsbSerialPort;
+SerialInputOutputManager.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\util): * @author mike wakerly (opensource@hoho.com)
+UsbId.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+UsbId.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+UsbId.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+UsbSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+UsbSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+UsbSerialDriver.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+UsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+UsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+UsbSerialPort.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * Copyright 2013 mike wakerly <opensource@hoho.com>
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)
+UsbSerialRuntimeException.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver):package com.hoho.android.usbserial.driver;
+UsbSerialRuntimeException.java (usbserialforandroid\src\main\java\com\hoho\android\usbserial\driver): * @author mike wakerly (opensource@hoho.com)

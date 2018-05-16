@@ -7,7 +7,7 @@ Current Version (in development)
   * API change: setBaudrate() has been removed; use setParameters().
   * API change: open() no longer implicitly sets the baud rate.  Clients should
     call setParameters() immediately after open(), when necessary.
-  * Library version is available in `com.hoho.android.usbserial.BuildInfo`.
+  * Library version is available in `com.wizarpos.android.usbserial.BuildInfo`.
 
 v0.1.0 (2012-10-12)
   * New driver: CdcAcmSerialDriver.
