@@ -1,5 +1,5 @@
 /* Copyright 2011-2013 Google Inc.
- * Copyright 2013 mike wakerly <opensource@wizarpos.com>
+ * Copyright 2013 anonymous <opensource@wizarpos.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -52,7 +52,7 @@ import java.util.List;
 /**
  * Shows a {@link ListView} of available USB devices.
  *
- * @author mike wakerly (opensource@wizarpos.com)
+ * @author anonymouss (opensource@wizarpos.com)
  */
 public class DeviceListActivity extends Activity {
 

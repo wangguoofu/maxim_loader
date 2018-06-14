@@ -22,5 +22,9 @@
     <usb-device vendor-id="6790" product-id="29987" />
 
     <!-- Q2 -->
-    <usb-device vendor-id="05c6" product-id="9025" />
+    <usb-device vendor-id="0x05c6" product-id="0x9025" />
+
+    <!--maxim-->
+     <usb-device vendor-id="0x0b6a" product-id="0x5346" />
+    
 </resources>

@@ -30,8 +30,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.wizarpos.android.usbserial.driver.UsbSerialPort;
 import com.wizarpos.android.usbserial.util.HexDump;
@@ -68,6 +73,8 @@ public class SerialConsoleActivity extends Activity {
     private ScrollView mScrollView;
     private CheckBox chkDTR;
     private CheckBox chkRTS;
+    private EditText testInput;
+    private Button testSend;
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
 
@@ -101,6 +108,8 @@ public class SerialConsoleActivity extends Activity {
         mScrollView = (ScrollView) findViewById(R.id.demoScroller);
         chkDTR = (CheckBox) findViewById(R.id.checkBoxDTR);
         chkRTS = (CheckBox) findViewById(R.id.checkBoxRTS);
+        testInput =(EditText) findViewById(R.id.inputTest);
+        testSend = (Button) findViewById(R.id.testSend);
 
         chkDTR.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -117,6 +126,22 @@ public class SerialConsoleActivity extends Activity {
                 try {
                     sPort.setRTS(isChecked);
                 }catch (IOException x){}
+            }
+        });
+
+        testSend.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int ret = 0;
+                String test = "hahahah";
+                //Toast.makeText(SerialConsoleActivity.this, testInput.getText().toString(), Toast.LENGTH_LONG).show();
+                try {
+                    ret = sPort.write(testInput.getText().toString().getBytes(), 1000);
+                    Toast.makeText(SerialConsoleActivity.this, "ret="+ret, Toast.LENGTH_SHORT).show();
+                } catch(IOException e){
+                    Toast.makeText(SerialConsoleActivity.this, "sPort.write failed", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "sPort.write failed");
+                }
             }
         });
 

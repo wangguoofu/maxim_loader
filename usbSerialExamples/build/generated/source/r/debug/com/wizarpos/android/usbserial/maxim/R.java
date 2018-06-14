@@ -17,11 +17,15 @@ public final class R {
     public static final int consoleText=0x7f020002;
     public static final int demoScroller=0x7f020003;
     public static final int demoTitle=0x7f020004;
-    public static final int deviceList=0x7f020005;
-    public static final int progressBar=0x7f020006;
-    public static final int progressBarTitle=0x7f020007;
-    public static final int separator=0x7f020008;
-    public static final int separator2=0x7f020009;
+    public static final int demoTitle2=0x7f020005;
+    public static final int deviceList=0x7f020006;
+    public static final int inputTest=0x7f020007;
+    public static final int progressBar=0x7f020008;
+    public static final int progressBarTitle=0x7f020009;
+    public static final int separator=0x7f02000a;
+    public static final int separator2=0x7f02000b;
+    public static final int separator3=0x7f02000c;
+    public static final int testSend=0x7f02000d;
   }
   public static final class layout {
     public static final int main=0x7f030000;
@@ -31,8 +35,9 @@ public final class R {
     public static final int app_name=0x7f040000;
     public static final int app_title=0x7f040001;
     public static final int refreshing=0x7f040002;
-    public static final int textBtnDTR=0x7f040003;
-    public static final int textBtnRTS=0x7f040004;
+    public static final int send_text=0x7f040003;
+    public static final int textBtnDTR=0x7f040004;
+    public static final int textBtnRTS=0x7f040005;
   }
   public static final class xml {
     public static final int device_filter=0x7f050000;

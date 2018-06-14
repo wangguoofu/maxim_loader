@@ -51,4 +51,33 @@
             android:layout_height="wrap_content"
             android:typeface="monospace" />
     </ScrollView>
+
+    <View
+        android:id="@+id/separator3"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#eeeeee" />
+
+    <TextView
+        android:id="@+id/demoTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TestInput:"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/inputTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Test" />
+
+    <Button
+        android:id="@+id/testSend"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+
+        android:text="send" />
 </LinearLayout>

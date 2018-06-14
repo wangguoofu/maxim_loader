@@ -429,6 +429,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
         supportedDevices.put(Integer.valueOf(UsbId.VENDOR_MAXIM),
                 new int[] {
                         UsbId.MAXIM_LOADER,
+						UsbId.MAXIM_COM,
                 });
         return supportedDevices;
     }

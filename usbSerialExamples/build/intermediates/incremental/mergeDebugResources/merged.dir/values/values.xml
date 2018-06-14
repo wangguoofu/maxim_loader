@@ -3,6 +3,7 @@
     <string name="app_name">Maxim Loader</string>
     <string name="app_title">Maxim Loader</string>
     <string name="refreshing">Refreshing...</string>
+    <string name="send_text">input text</string>
     <string name="textBtnDTR">DTR - Data Terminal Ready</string>
     <string name="textBtnRTS">RTS - Request To Send</string>
 </resources>

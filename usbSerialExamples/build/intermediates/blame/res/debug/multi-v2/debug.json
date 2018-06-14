@@ -6,18 +6,18 @@
                 {
                     "source": "/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/src/main/res/values/strings.xml",
                     "from": {
-                        "startLines": "4,3,5,7,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "107,56,157,271,210",
-                        "endColumns": "49,50,52,64,60",
-                        "endOffsets": "152,102,205,331,266"
+                        "startLines": "4,3,5,8,7,6",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "107,56,157,336,271,210",
+                        "endColumns": "49,50,52,48,64,60",
+                        "endOffsets": "152,102,205,380,331,266"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,105,156,209,274",
-                        "endColumns": "49,50,52,64,60",
-                        "endOffsets": "100,151,204,269,330"
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,105,156,209,258,323",
+                        "endColumns": "49,50,52,48,64,60",
+                        "endOffsets": "100,151,204,253,318,379"
                     }
                 }
             ]

@@ -70,6 +70,7 @@ public final class UsbId {
 
     public static final int VENDOR_MAXIM = 0x0b6a;
     public static final int MAXIM_LOADER = 0x0625;
+	public static final int MAXIM_COM = 0x5346;
 
     private UsbId() {
         throw new IllegalAccessError("Non-instantiable class.");
