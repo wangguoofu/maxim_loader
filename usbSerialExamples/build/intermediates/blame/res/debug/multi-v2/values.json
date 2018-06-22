@@ -13,11 +13,30 @@
                         "endOffsets": "152,102,205,380,331,266"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7",
+                        "startLines": "27,28,29,30,31,32",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,105,156,209,258,323",
+                        "startOffsets": "1187,1237,1288,1341,1390,1455",
                         "endColumns": "49,50,52,48,64,60",
-                        "endOffsets": "100,151,204,253,318,379"
+                        "endOffsets": "1232,1283,1336,1385,1450,1511"
+                    }
+                },
+                {
+                    "source": "/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/src/main/res/values/method.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "0",
+                        "startOffsets": "51",
+                        "endLines": "26",
+                        "endColumns": "15",
+                        "endOffsets": "1178"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "26",
+                        "endColumns": "15",
+                        "endOffsets": "1182"
                     }
                 }
             ]

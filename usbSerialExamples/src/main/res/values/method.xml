@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="methods" translatable="false">
+<string-array name="methods" translatable="false">
     <item>app_request_for_show_pwd_keyboard</item>
     <item>app_request_for_input_pwd_finish</item>
     <item>app_request_for_tap_pwd</item>
@@ -25,10 +25,4 @@
     <item>app_request_for_signature_finish</item>
     <item>app_request_for_signature_check</item>
 </string-array>
-    <string name="app_name">Maxim Loader</string>
-    <string name="app_title">Maxim Loader</string>
-    <string name="refreshing">Refreshing...</string>
-    <string name="send_text">input text</string>
-    <string name="textBtnDTR">DTR - Data Terminal Ready</string>
-    <string name="textBtnRTS">RTS - Request To Send</string>
 </resources>

@@ -1,1 +1,7 @@
----- mike wakerly Mat
+---- UsbSerialProber Matches (6 in 2 files) ----
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\wizarpos\android\usbserial\examples):import com.wizarpos.android.usbserial.driver.UsbSerialProber;
+DeviceListActivity.java (usbserialexamples\src\main\java\src\com\wizarpos\android\usbserial\examples):                        UsbSerialProber.getDefaultProber().findAllDrivers(mUsbManager);
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\wizarpos\android\usbserial\driver):public class UsbSerialProber {
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\wizarpos\android\usbserial\driver):    public UsbSerialProber(ProbeTable probeTable) {
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\wizarpos\android\usbserial\driver):    public static UsbSerialProber getDefaultProber() {
+UsbSerialProber.java (usbserialforandroid\src\main\java\com\wizarpos\android\usbserial\driver):        return new UsbSerialProber(getDefaultProbeTable());

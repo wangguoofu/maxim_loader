@@ -26,5 +26,6 @@
 
     <!--maxim-->
      <usb-device vendor-id="0x0b6a" product-id="0x5346" />
+     <usb-device vendor-id="0x0b6a" product-id="0x0625" />
     
 </resources>

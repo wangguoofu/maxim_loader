@@ -34,10 +34,12 @@ import android.widget.EditText;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.wizarpos.android.usbserial.driver.UsbProtoManger;
 import com.wizarpos.android.usbserial.driver.UsbSerialPort;
 import com.wizarpos.android.usbserial.util.HexDump;
 import com.wizarpos.android.usbserial.util.SerialInputOutputManager;
@@ -45,6 +47,9 @@ import com.wizarpos.android.usbserial.util.SerialInputOutputManager;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.Calendar;
+import java.util.Date;
+import java.security.MessageDigest;
 
 /**
  * Monitors a single {@link UsbSerialPort} instance, showing all data
@@ -75,6 +80,9 @@ public class SerialConsoleActivity extends Activity {
     private CheckBox chkRTS;
     private EditText testInput;
     private Button testSend;
+    private Spinner spinner;
+    private Button testSendMethod;
+    private UsbProtoManger usbProtoManger;
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
 
@@ -110,6 +118,8 @@ public class SerialConsoleActivity extends Activity {
         chkRTS = (CheckBox) findViewById(R.id.checkBoxRTS);
         testInput =(EditText) findViewById(R.id.inputTest);
         testSend = (Button) findViewById(R.id.testSend);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        testSendMethod = (Button) findViewById(R.id.testSendMethod);
 
         chkDTR.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -133,11 +143,11 @@ public class SerialConsoleActivity extends Activity {
             @Override
             public void onClick(View v) {
                 int ret = 0;
-                String test = "hahahah";
                 //Toast.makeText(SerialConsoleActivity.this, testInput.getText().toString(), Toast.LENGTH_LONG).show();
                 try {
-                    ret = sPort.write(testInput.getText().toString().getBytes(), 1000);
-                    Toast.makeText(SerialConsoleActivity.this, "ret="+ret, Toast.LENGTH_SHORT).show();
+                    //ret = sPort.write(testInput.getText().toString().getBytes(), 2000);
+                    //Toast.makeText(SerialConsoleActivity.this, "ret="+ret, Toast.LENGTH_SHORT).show();
+                    usbProtoManger.sendCmd(testInput.getText().toString(), 2000);
                 } catch(IOException e){
                     Toast.makeText(SerialConsoleActivity.this, "sPort.write failed", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "sPort.write failed");
@@ -145,8 +155,65 @@ public class SerialConsoleActivity extends Activity {
             }
         });
 
+        testSendMethod.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testMethod(spinner.getSelectedItem().toString());
+            }
+        });
+
     }
 
+    private final static String  md5Encrypt(String plaintext) {
+        char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'a', 'b', 'c', 'd', 'e', 'f' };
+        try {
+            byte[] btInput = plaintext.getBytes();
+            // 获得MD5摘要算法的 MessageDigest 对象
+            MessageDigest mdInst = MessageDigest.getInstance("MD5");
+            // 使用指定的字节更新摘要
+            mdInst.update(btInput);
+            // 获得密文
+            byte[] md = mdInst.digest();
+            // 把密文转换成十六进制的字符串形式
+            int j = md.length;
+            char str[] = new char[j * 2];
+            int k = 0;
+            for (int i = 0; i < j; i++) {
+                byte byte0 = md[i];
+                str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+                str[k++] = hexDigits[byte0 & 0xf];
+            }
+            return new String(str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private void testMethod(String method)
+    {
+        String apiversion = "1.0.1";
+        String deviceId = "A380A7DE0100001EMD";
+        String apiSecret = "95:7D:E0:10:00:01";
+
+        long time = System.currentTimeMillis()/1000;//获取系统时间的10位的时间戳
+        String  timeStamp =String.valueOf(time);
+        String  sign = md5Encrypt(deviceId+apiSecret+method+timeStamp);
+
+        StringBuffer stringBuffer = new StringBuffer("api_version:");
+        stringBuffer.append(apiversion).append("\n");
+        stringBuffer.append("method:").append(method).append("\n");
+        stringBuffer.append("timestamp:").append(timeStamp).append("\n");
+        stringBuffer.append("device_id:").append(deviceId).append("\n");
+        stringBuffer.append("sign:").append(sign).append("\n");
+
+        try {
+            usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+        } catch(IOException e){
+            Toast.makeText(SerialConsoleActivity.this, "sPort.write failed", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "sPort.write failed");
+        }
+    }
 
     @Override
     protected void onPause() {
@@ -185,7 +252,8 @@ public class SerialConsoleActivity extends Activity {
 
             try {
                 sPort.open(connection);
-                sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                sPort.setParameters(921600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                usbProtoManger = new UsbProtoManger(sPort);
 
                 showStatus(mDumpTextView, "CD  - Carrier Detect", sPort.getCD());
                 showStatus(mDumpTextView, "CTS - Clear To Send", sPort.getCTS());

@@ -289,6 +289,8 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
             // TODO(mikey): Nearly identical to FtdiSerial write. Refactor.
             int offset = 0;
 
+            Log.d(TAG, "mWriteBuffer.length="+mWriteBuffer.length);
+
             while (offset < src.length) {
                 final int writeLength;
                 final int amtWritten;
@@ -297,6 +299,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                     final byte[] writeBuffer;
 
                     writeLength = Math.min(src.length - offset, mWriteBuffer.length);
+                    //Log.d(TAG, "writeLength="+writeLength);
                     if (offset == 0) {
                         writeBuffer = src;
                     } else {
@@ -307,14 +310,23 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
 
                     amtWritten = mConnection.bulkTransfer(mWriteEndpoint, writeBuffer, writeLength,
                             timeoutMillis);
+                    /*
+                    try {
+                        Thread.sleep(10000, 0);
+                    }catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    */
                 }
+				//Log.d(TAG, "amtWritten="+amtWritten);
                 if (amtWritten <= 0) {
                     throw new IOException("Error writing " + writeLength
                             + " bytes at offset " + offset + " length=" + src.length);
                 }
 
-                Log.d(TAG, "Wrote amt=" + amtWritten + " attempted=" + writeLength);
+                //Log.d(TAG, "Wrote amt=" + amtWritten + " attempted=" + writeLength);
                 offset += amtWritten;
+                Log.d(TAG, "offset="+offset);
             }
             return offset;
         }
@@ -322,6 +334,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
         @Override
         public void setParameters(int baudRate, int dataBits, int stopBits, int parity) {
             byte stopBitsByte;
+            int ret = 0;
             switch (stopBits) {
                 case STOPBITS_1: stopBitsByte = 0; break;
                 case STOPBITS_1_5: stopBitsByte = 1; break;
@@ -347,7 +360,11 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                     stopBitsByte,
                     parityBitesByte,
                     (byte) dataBits};
-            sendAcmControlMessage(SET_LINE_CODING, 0, msg);
+            Log.d(TAG, "set parametres1");
+            sendAcmControlMessage(SET_CONTROL_LINE_STATE, 0x03, null);//why ??
+            ret = sendAcmControlMessage(SET_LINE_CODING, 0, msg);
+            Log.d(TAG,"ctrl1 ret="+ret);
+            sendAcmControlMessage(SET_CONTROL_LINE_STATE, 0x03, null);//why ??
         }
 
         @Override

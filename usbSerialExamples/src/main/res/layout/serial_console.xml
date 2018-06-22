@@ -80,4 +80,23 @@
         android:layout_height="wrap_content"
 
         android:text="send" />
+
+    <View
+        android:id="@+id/separator3"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#eeeeee" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/methods"
+        ></Spinner>
+    <Button
+        android:id="@+id/testSendMethod"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+
+        android:text="sendMethod" />
 </LinearLayout>
