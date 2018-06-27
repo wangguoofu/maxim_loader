@@ -256,6 +256,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                   //Log.d(TAG, HexDump.dumpHexString(dest, 0, Math.min(32, dest.length)));
                   return nread;
                 } else {
+                  Log.d(TAG, "DEBUG.requestWait.1: nread=" + nread);
                   return 0;
                 }
               } finally {
@@ -277,10 +278,12 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                         // Hack: Special case "~infinite timeout" as an error.
                         return -1;
                     }
+                    Log.d(TAG, "DEBUG.requestWait.2");
                     return 0;
                 }
                 System.arraycopy(mReadBuffer, 0, dest, 0, numBytesRead);
             }
+            Log.d(TAG, "DEBUG.requestWait.3");
             return numBytesRead;
         }
 

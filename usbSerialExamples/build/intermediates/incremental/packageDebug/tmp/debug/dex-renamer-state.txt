@@ -1,4 +1,4 @@
-#Fri Jun 22 16:54:26 CST 2018
+#Wed Jun 27 14:22:39 CST 2018
 path.1=classes.dex
 path.0=classes.dex
 renamed.5=classes6.dex
@@ -9,8 +9,8 @@ renamed.1=classes2.dex
 renamed.0=classes.dex
 base.5=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/15
 base.4=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/12
-base.3=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/14
-base.2=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/11
+base.3=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/17
+base.2=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/14
 base.1=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/16
 base.0=/mnt/wizarpos/main/work/maxusb/maxim_loader/usbSerialExamples/build/intermediates/transforms/dexMerger/debug/13
 path.5=classes.dex

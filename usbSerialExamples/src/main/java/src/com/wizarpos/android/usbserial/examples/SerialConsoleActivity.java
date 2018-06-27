@@ -82,6 +82,7 @@ public class SerialConsoleActivity extends Activity {
     private Button testSend;
     private Spinner spinner;
     private Button testSendMethod;
+    private Button clear;
     private UsbProtoManger usbProtoManger;
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
@@ -114,13 +115,14 @@ public class SerialConsoleActivity extends Activity {
         mTitleTextView = (TextView) findViewById(R.id.demoTitle);
         mDumpTextView = (TextView) findViewById(R.id.consoleText);
         mScrollView = (ScrollView) findViewById(R.id.demoScroller);
-        chkDTR = (CheckBox) findViewById(R.id.checkBoxDTR);
-        chkRTS = (CheckBox) findViewById(R.id.checkBoxRTS);
+        //chkDTR = (CheckBox) findViewById(R.id.checkBoxDTR);
+        //chkRTS = (CheckBox) findViewById(R.id.checkBoxRTS);
         testInput =(EditText) findViewById(R.id.inputTest);
         testSend = (Button) findViewById(R.id.testSend);
+        clear = (Button) findViewById(R.id.contextClear);
         spinner = (Spinner) findViewById(R.id.spinner);
         testSendMethod = (Button) findViewById(R.id.testSendMethod);
-
+/*
         chkDTR.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -138,27 +140,47 @@ public class SerialConsoleActivity extends Activity {
                 }catch (IOException x){}
             }
         });
-
+*/
         testSend.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                int ret = 0;
-                //Toast.makeText(SerialConsoleActivity.this, testInput.getText().toString(), Toast.LENGTH_LONG).show();
-                try {
-                    //ret = sPort.write(testInput.getText().toString().getBytes(), 2000);
-                    //Toast.makeText(SerialConsoleActivity.this, "ret="+ret, Toast.LENGTH_SHORT).show();
-                    usbProtoManger.sendCmd(testInput.getText().toString(), 2000);
-                } catch(IOException e){
-                    Toast.makeText(SerialConsoleActivity.this, "sPort.write failed", Toast.LENGTH_SHORT).show();
-                    Log.e(TAG, "sPort.write failed");
-                }
+                new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            usbProtoManger.sendCmd(testInput.getText().toString(), 2000);
+                        } catch (IOException e) {
+                            SerialConsoleActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(SerialConsoleActivity.this,
+                                            "sPort.write failed",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            Log.e(TAG, "sPort.write failed");
+                        }
+                    }
+                }.start();
             }
         });
 
         testSendMethod.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                testMethod(spinner.getSelectedItem().toString());
+                new Thread() {
+                    @Override
+                    public void run() {
+                        testMethod(spinner.getSelectedItem().toString());
+                    }
+                }.start();
+            }
+        });
+
+        clear.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDumpTextView.setText("");
             }
         });
 
@@ -192,6 +214,7 @@ public class SerialConsoleActivity extends Activity {
 
     private void testMethod(String method)
     {
+        final String response;
         String apiversion = "1.0.1";
         String deviceId = "A380A7DE0100001EMD";
         String apiSecret = "95:7D:E0:10:00:01";
@@ -208,10 +231,78 @@ public class SerialConsoleActivity extends Activity {
         stringBuffer.append("sign:").append(sign).append("\n");
 
         try {
-            usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            if(method.equals("device_request_for_connection")) {
+                stringBuffer.append("user_unique_code:").append("wizarpos").append('\n');
+                response = usbProtoManger.sendResponse(stringBuffer.toString());
+            } else if(method.equals("app_request_for_show_pwd_keyboard")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_input_pwd_finish")){
+                stringBuffer.append("num_index:").append("1,2,3,4,5,6").append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_tap_pwd")){
+                stringBuffer.append("num_index:").append("1").append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_backspace_number")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_init")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_set_pwd")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_mnemonic_page")){
+                stringBuffer.append("page:").append("2").append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_init_check")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_restore_start")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_word_input")){
+                stringBuffer.append("letter_index:").append("1,2,3,4,5,6,7,8").append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_word_input_finish")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_delete_word")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_backspace_word")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_tap_word")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_restore_check")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_add_token")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_get_token_list")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_remove_token")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_signature_start")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_signature")){
+                stringBuffer.append("token_type:").append("coin").append('\n');
+                stringBuffer.append("token_index:").append("60").append('\n');
+                stringBuffer.append("token_address:").append("000000").append('\n');
+                stringBuffer.append("content:").append("0123456789abcdef").append('\n');
+                stringBuffer.append("decimal:").append("3").append('\n');
+                stringBuffer.append("unit:").append("BTC").append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_signature_finish")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_signature_check")){
+                stringBuffer.append("pwd_ticket:").append(testInput.getText().toString()).append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            }
+            else
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+
+            SerialConsoleActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mDumpTextView.append("==========================================\n");
+                    mDumpTextView.append(response);
+                    mDumpTextView.append("==========================================\n");
+                }
+            });
         } catch(IOException e){
-            Toast.makeText(SerialConsoleActivity.this, "sPort.write failed", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "sPort.write failed");
+            Log.e(TAG, "send cmd/response failed");
         }
     }
 
@@ -255,6 +346,7 @@ public class SerialConsoleActivity extends Activity {
                 sPort.setParameters(921600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
                 usbProtoManger = new UsbProtoManger(sPort);
 
+                /*
                 showStatus(mDumpTextView, "CD  - Carrier Detect", sPort.getCD());
                 showStatus(mDumpTextView, "CTS - Clear To Send", sPort.getCTS());
                 showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
@@ -262,7 +354,7 @@ public class SerialConsoleActivity extends Activity {
                 showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
                 showStatus(mDumpTextView, "RI  - Ring Indicator", sPort.getRI());
                 showStatus(mDumpTextView, "RTS - Request To Send", sPort.getRTS());
-
+                */
             } catch (IOException e) {
                 Log.e(TAG, "Error setting up device: " + e.getMessage(), e);
                 mTitleTextView.setText("Error opening device: " + e.getMessage());
@@ -295,9 +387,34 @@ public class SerialConsoleActivity extends Activity {
         }
     }
 
+    private boolean debugging = false;
     private void onDeviceStateChange() {
+        Log.e(TAG, "+DEBUG.TEMP");
         stopIoManager();
-        startIoManager();
+        if (debugging) {
+            startIoManager();
+            return;
+        }
+
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    final String connectString = usbProtoManger.requestForConnection(2000);
+                    SerialConsoleActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mDumpTextView.append("==========================================\n");
+                            mDumpTextView.append(connectString);
+                            mDumpTextView.append("==========================================\n");
+                        }
+                    });
+                } catch (IOException e) {
+                    Log.e(TAG, "requestForConnection failed");
+                }
+            }
+        }.start();
+
     }
 
     private void updateReceivedData(byte[] data) {
