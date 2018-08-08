@@ -237,7 +237,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
 
         @Override
         public int read(byte[] dest, int timeoutMillis) throws IOException {
-            if (mEnableAsyncReads) {
+            if (mEnableAsyncReads&&timeoutMillis!=0) {
               final UsbRequest request = new UsbRequest();
               try {
                 request.initialize(mConnection, mReadEndpoint);
@@ -265,6 +265,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
             }
 
             final int numBytesRead;
+            timeoutMillis = 1;
             synchronized (mReadBufferLock) {
                 int readAmt = Math.min(dest.length, mReadBuffer.length);
                 numBytesRead = mConnection.bulkTransfer(mReadEndpoint, mReadBuffer, readAmt,
@@ -334,6 +335,25 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
             return offset;
         }
 
+        private void clearLeftData() {
+            final byte[] block = new byte[64];
+            int ret;
+
+            Log.d(TAG, "try to clear data begin");
+            try {
+                do {
+                    ret = read(block, 0);
+                    Log.e(TAG, "ret ="+ret);
+                }
+                while (ret>0);
+            }
+            catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            Log.d(TAG, "try to clear data end");
+        }
+
         @Override
         public void setParameters(int baudRate, int dataBits, int stopBits, int parity) {
             byte stopBitsByte;
@@ -363,7 +383,8 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                     stopBitsByte,
                     parityBitesByte,
                     (byte) dataBits};
-            Log.d(TAG, "set parametres1");
+            Log.d(TAG, "set parametres");
+            clearLeftData();
             sendAcmControlMessage(SET_CONTROL_LINE_STATE, 0x03, null);//why ??
             ret = sendAcmControlMessage(SET_LINE_CODING, 0, msg);
             Log.d(TAG,"ctrl1 ret="+ret);

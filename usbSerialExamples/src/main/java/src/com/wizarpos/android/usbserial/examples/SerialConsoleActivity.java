@@ -265,6 +265,7 @@ public class SerialConsoleActivity extends Activity {
             } else if(method.equals("app_request_for_backspace_word")){
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             } else if(method.equals("app_request_for_tap_word")){
+                stringBuffer.append("letter_index:").append("1").append('\n');
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             } else if(method.equals("app_request_for_restore_check")){
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
@@ -278,16 +279,27 @@ public class SerialConsoleActivity extends Activity {
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             } else if(method.equals("app_request_for_signature")){
                 stringBuffer.append("token_type:").append("coin").append('\n');
-                stringBuffer.append("token_index:").append("60").append('\n');
-                stringBuffer.append("token_address:").append("000000").append('\n');
-                stringBuffer.append("content:").append("0123456789abcdef").append('\n');
-                stringBuffer.append("decimal:").append("3").append('\n');
+                stringBuffer.append("token_index:").append("1").append('\n');
+                stringBuffer.append("token_address:").append('\n');
+                stringBuffer.append("content:").append("02000000018450788654925a6e9af85e116" +
+                        "cf922779a54959566eff5bbf4a15ff86ec2d3f1000000001976a91416d169823039" +
+                        "b0c73096e44a31ee82f592403fd088acffffffff0210270000000000001976a914c7" +
+                        "f73a655db4ffe121ddbbfe8f282da3586b6a3988ac706f9800000000001976a91416" +
+                        "d169823039b0c73096e44a31ee82f592403fd088ac0000000001000000").append('\n');
+                stringBuffer.append("decimal:").append("8").append('\n');
                 stringBuffer.append("unit:").append("BTC").append('\n');
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             } else if(method.equals("app_request_for_signature_finish")){
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             } else if(method.equals("app_request_for_signature_check")){
                 stringBuffer.append("pwd_ticket:").append(testInput.getText().toString()).append('\n');
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 20000);
+            } else if(method.equals("app_request_for_device_reset")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_mnemonic_check")){
+                response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
+            } else if(method.equals("app_request_for_mnemonic_check_input")){
+                stringBuffer.append("index:").append("1,2,6,4").append('\n');
                 response = usbProtoManger.sendCmd(stringBuffer.toString(), 2000);
             }
             else
@@ -312,6 +324,7 @@ public class SerialConsoleActivity extends Activity {
         stopIoManager();
         if (sPort != null) {
             try {
+                Log.d(TAG, "ready to sport.close");
                 sPort.close();
             } catch (IOException e) {
                 // Ignore.
@@ -328,6 +341,7 @@ public class SerialConsoleActivity extends Activity {
 
     @Override
     protected void onResume() {
+        int ret;
         super.onResume();
         Log.d(TAG, "Resumed, port=" + sPort);
         if (sPort == null) {
@@ -345,6 +359,7 @@ public class SerialConsoleActivity extends Activity {
                 sPort.open(connection);
                 sPort.setParameters(921600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
                 usbProtoManger = new UsbProtoManger(sPort);
+
 
                 /*
                 showStatus(mDumpTextView, "CD  - Carrier Detect", sPort.getCD());

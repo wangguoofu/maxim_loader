@@ -1,6 +1,9 @@
 package com.wizarpos.android.usbserial.driver;
 
 import android.util.Log;
+
+//import com.wizarpos.android.usbserial.util.HexDump;
+
 import java.io.IOException;
 
 public class UsbProtoManger {
@@ -111,8 +114,10 @@ public class UsbProtoManger {
                 while(dstOffset<(contentLen+FRAME_SIZEOF_HEADER));
             }
 
+            dstOffset = dstOffset>contentLen+FRAME_SIZEOF_HEADER?contentLen+FRAME_SIZEOF_HEADER:dstOffset;
             lrc = calculate_lrc(data, dstOffset);
             Log.d(TAG, "lrc = " + lrc);
+            //Log.d(TAG,"read data:"+HexDump.dumpHexString(data, 0, dstOffset));
             if(lrc != 0)
                 throw new IOException("lrc error");
             if(data[FRAME_SEQ_NUM_OFFSET] != (byte)seqenceNumber)
@@ -124,7 +129,10 @@ public class UsbProtoManger {
             throw new IOException("usb read failed");
         }
 
-        return new String(data, FRAME_SIZEOF_HEADER, contentLen-1);
+        String retString = new String(data, FRAME_SIZEOF_HEADER, contentLen-1);
+        Log.d(TAG, "content:" + retString);
+
+        return retString;
 
     }
 

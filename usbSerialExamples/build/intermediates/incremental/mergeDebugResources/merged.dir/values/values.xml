@@ -24,6 +24,9 @@
     <item>app_request_for_signature</item>
     <item>app_request_for_signature_finish</item>
     <item>app_request_for_signature_check</item>
+    <item>app_request_for_device_reset</item>
+    <item>app_request_for_mnemonic_check</item>
+    <item>app_request_for_mnemonic_check_input</item>
 </string-array>
     <string name="app_name">Maxim Loader</string>
     <string name="app_title">Maxim Loader</string>
