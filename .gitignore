@@ -1,0 +1,5 @@
+.gradle/
+.idea/
+maim_usb_loader.WK3
+usbSerialExamples/build/
+usbSerialForAndroid/build/
